@@ -2,12 +2,13 @@ import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
 import * as express from 'express';
 import * as knex from 'knex';
+import * as dotenv from 'dotenv';
 
 import UserRouter from './routers/UserRouter';
 import UserService from './services/UserService';
 import ApiClarifaiRouter from './routers/ApiClarifaiRouter';
 
-require('dotenv').config();
+dotenv.config();
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const PORT = process.env.PORT || 8080;

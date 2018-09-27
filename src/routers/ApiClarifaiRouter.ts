@@ -1,7 +1,8 @@
 import * as express from 'express';
 import { Request, Response } from 'express';
+import * as dotenv from 'dotenv';
 
-require('dotenv').config();
+dotenv.config();
 
 const Clarifai = require('clarifai');
 const { CLARIFAI_API_KEY } = process.env;
