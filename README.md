@@ -1,4 +1,7 @@
+heroku addons:create heroku-postgresql:hobby-dev
+
 append to %PATH% the path of bin folder that contains psql
+heroku pg:psql
 
 CREATE TABLE users (
 	id SERIAL PRIMARY KEY,
