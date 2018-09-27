@@ -1,0 +1,29 @@
+heroku addons:create heroku-postgresql:hobby-dev
+
+append to %PATH% the path of bin folder that contains psql
+heroku pg:psql
+
+CREATE TABLE users (
+	id SERIAL PRIMARY KEY,
+	name CHAR(255),
+	email CHAR(255)
+);
+
+CREATE TABLE logins (
+	id SERIAL PRIMARY KEY,
+	hash TEXT,
+	user_id NUMERIC
+);
+
+ALTER TABLE users ADD COLUMN entries INTEGER;
+ALTER TABLE users ALTER COLUMN entries SET DEFAULT 0;
+
+///
+According to documentation you could use heroku CLI
+
+$ heroku config:set DATABASE_URI=database_uri_here
+$ heroku config:set SESSION_SECRET=session_secret
+... and so on for each variable, 
+or you could use UI https://dashboard-classic.heroku.com/apps/{your-app-name}/settings and provide same variables via web interface, as I mention in above comment
+
+NODE_ENV=production is not treated specially by heroku, so you do need to provide it as well as any other env variable
