@@ -1,4 +1,5 @@
 heroku addons:create heroku-postgresql:hobby-dev
+heroku config:set NPM_CONFIG_PRODUCTION=false
 
 append to %PATH% the path of bin folder that contains psql
 heroku pg:psql
